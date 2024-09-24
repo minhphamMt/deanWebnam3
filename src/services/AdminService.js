@@ -139,4 +139,21 @@ let deleteUser = async (userId) => {
     }
   });
 };
-export default { createUserAdmin, updateUserAdmin, deleteUser };
+let getAllUsers = async () => {
+  return new Promise((resolve, reject) => {
+    try {
+      let sql = `SELECT * FROM User`;
+      connection.query(sql, (err, results) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(results);
+        }
+      });
+    } catch (err) {
+      reject(err);
+    }
+  });
+};
+
+export default { createUserAdmin, updateUserAdmin, deleteUser, getAllUsers };
