@@ -12,6 +12,7 @@ router.post("/admin/CreateUser", postUser);
 router.put("/admin/EditUser", updateUserAdmins);
 router.delete("/admin/DeleteUser", deleteUserAdmin);
 router.get("/admin/getAll", getAllAdmin);
+router.get("/Login/getAllLogin", getAllAdmin);
 // =============User
 router.post("/user/CreateAcout", CreateAcoutUser);
 router.put("/user/EditInfo", EditUser);

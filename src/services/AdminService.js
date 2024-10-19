@@ -156,4 +156,9 @@ let getAllUsers = async () => {
   });
 };
 
-export default { createUserAdmin, updateUserAdmin, deleteUser, getAllUsers };
+export default {
+  createUserAdmin,
+  updateUserAdmin,
+  deleteUser,
+  getAllUsers,
+};

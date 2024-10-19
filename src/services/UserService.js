@@ -4,7 +4,6 @@ let CreateAcount = async (data) => {
     console.log(">>>check data :", data);
     try {
       let { FirstName, LastName, Email, PassWord, PhoneNumber, Avarta } = data;
-      // Thêm người dùng vào bảng User
       let sqlUser = `
         INSERT INTO User (FirstName, LastName, Email, PassWord, PhoneNumber, Avarta)
         VALUES (?, ?, ?, ?, ?, ?)
@@ -17,8 +16,7 @@ let CreateAcount = async (data) => {
           if (err) {
             reject(err);
           } else {
-            const userId = results.insertId; // Lấy UserId vừa tạo
-            // Thêm bản ghi vào bảng Roled
+            const userId = results.insertId;
             let sqlRole = `
             INSERT INTO Roled (UserId, isAdmin, isUser)
             VALUES (?, 0, 1)  -- Giả sử mặc định là user, admin = 0
@@ -27,7 +25,6 @@ let CreateAcount = async (data) => {
               if (roleErr) {
                 reject(roleErr);
               } else {
-                // Thêm bản ghi vào bảng Financial
                 let sqlFinancial = `
                 INSERT INTO Financial (UserId, Avai_monney, Income, Expense)
                 VALUES (?, 0, 0, 0)
